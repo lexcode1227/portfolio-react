@@ -13,6 +13,7 @@ const Container = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 11px;
 `
 const SkillsTitle = styled.h2`
     font-size: ${fontSizeLgText};

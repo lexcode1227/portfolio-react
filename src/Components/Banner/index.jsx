@@ -60,7 +60,7 @@ const Btn = styled.a`
   font-size: ${fontSizeSmText};
   background-color: ${props => props.primary ? '#2157F2' : 'transparent'};
   color: ${props => props.primary ? '#ffff' : '#2157F2'};
-  padding: 10px 20px;
+  padding: 10px 16px;
   border: none;
   border-radius: 12px;
   cursor: pointer;
@@ -77,7 +77,7 @@ const Banner = () => {
           <CardTitle>Yo soy Henry Agustin</CardTitle>
           <CardText>Soy formado en la Universidad Don Bosco en la carrera de Marketing Digital y actualmente estoy participando del proyecto Oracle ONE en Alura Latam.</CardText>
           <CardBtnContainer>
-            <Btn primary="true" href='#' >Ver Proyecto</Btn>
+            <Btn primary="true" href='#' >Ver Proyectos</Btn>
             <Btn href={cvUrl} target="_blank" >Descargar CV</Btn>
           </CardBtnContainer>
         </CardDiv>

@@ -13,7 +13,7 @@ export const fontSizeSmSubtitle = '34px';
 export const fontSizeMdSubtitle = '60px';
 export const fontSizeLgSubtitle = '75px';
 
-export const fontSizeXsText = '10px';
+export const fontSizeXsText = '16px';
 export const fontSizeSmText = '18px';
 export const fontSizeMdText = '20px';
 export const fontSizeLgText = '25px';
