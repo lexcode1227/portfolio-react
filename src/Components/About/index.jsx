@@ -1,16 +1,20 @@
-import React from 'react'
-import { styled } from 'styled-components'
-import { textColorRemark, fontSizeLgText, fontSizeXsText, fontSizeSmTitle, primaryColor, textColor, secondaryColor } from '../../constants'
-import MapImg from '../../assets/country.png'
+import React from 'react';
+import { styled } from 'styled-components';
+import { textColorRemark, fontSizeLgText, fontSizeXsText, fontSizeSmTitle, primaryColor, textColor, secondaryColor } from '../../constants';
+import MapImg from '../../assets/country.png';
+import { Element } from 'react-scroll';
 
-const AboutContainer = styled.section`
+const AboutContainer = styled(Element).attrs(() => ({
+    as: 'section',
+  }))`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 11px;
+    gap: 16px;
     height: 600px;
     background-color: ${primaryColor};
+    padding: 75px 0;
 `
 const AboutTitle = styled.h2`
     font-size: ${fontSizeLgText};
@@ -70,8 +74,8 @@ const About = () => {
         },
     ]
   return (
-    <AboutContainer>
-        <AboutTitle>About</AboutTitle>
+    <AboutContainer name="Sobre mí">
+        <AboutTitle>Sobre mí</AboutTitle>
         <CardContainer>
             <CardTitle>Yo soy Henry Alexander</CardTitle>
             <ul>

@@ -1,19 +1,23 @@
-import React from 'react'
-import { styled } from 'styled-components'
-import { fontSizeLgText, fontSizeSmText, secondaryColor, textColorRemark } from '../../constants'
-import JavascriptIcon from '../../assets/Icon-Javascript.svg'
-import ReactIcon from '../../assets/Icon-react.svg' 
-import MaterialUIIcon from '../../assets/Icon-material-ui.svg'  
-import GitIcon from '../../assets/Icon-git.svg' 
-import FigmaIcon from '../../assets/Icon-figma.svg' 
+import React from 'react';
+import { styled } from 'styled-components';
+import { fontSizeLgText, fontSizeSmText, secondaryColor, textColorRemark } from '../../constants';
+import JavascriptIcon from '../../assets/Icon-Javascript.svg';
+import ReactIcon from '../../assets/Icon-react.svg';
+import MaterialUIIcon from '../../assets/Icon-material-ui.svg';  
+import GitIcon from '../../assets/Icon-git.svg' ;
+import FigmaIcon from '../../assets/Icon-figma.svg';
+import { Element } from 'react-scroll';
 
-const Container = styled.section`
-    height: 550px;
+const Container = styled(Element).attrs(() => ({
+    as: 'section',
+  }))`
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 11px;
+    padding-top: 75px;
 `
 const SkillsTitle = styled.h2`
     font-size: ${fontSizeLgText};
@@ -82,8 +86,8 @@ const Skills = () => {
         },
     ]
   return (
-    <Container>
-        <SkillsTitle>Skills</SkillsTitle>
+    <Container name="Habilidades">
+        <SkillsTitle>Habilidades</SkillsTitle>
         <SkillsContainer>
             { data.map((dat)=> 
                 <SkillCard key={dat.id} props={dat}>

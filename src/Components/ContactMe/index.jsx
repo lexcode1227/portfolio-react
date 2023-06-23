@@ -1,24 +1,35 @@
-import React from 'react'
-import { styled } from 'styled-components'
-import { fontSizeLgText, secondaryColor, textColorRemark } from '../../constants'
+import React from 'react';
+import { styled } from 'styled-components';
+import { fontSizeSmText, fontSizeLgText, secondaryColor, textColorRemark } from '../../constants'
 import { Formik, Form, Field, ErrorMessage, useFormik } from 'formik';
 import * as Yup from 'yup';
 import { TextField, Button } from '@mui/material/';
+import { Element } from 'react-scroll';
 
-const ContactMeContainer = styled.section`
-    height: 650px;
+const ContactMeContainer = styled(Element).attrs(() => ({
+    as: 'section',
+  }))`
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 11px;
+    gap: 16px;
     background-color: ${secondaryColor};
     padding: 15px;
+    padding-top: 75px;
 `
 const ContactMeTitle = styled.h2`
     font-size: ${fontSizeLgText};
     font-weight: 500;
     color: ${textColorRemark};
+`
+const ContactMeSubtitle = styled.h3`
+    font-size: ${fontSizeSmText};
+    font-weight: 400;
+    color: ${textColorRemark};
+    text-align: justify;
+    max-width: 500px;
 `
 const validationSchema = Yup.object({
     name: Yup.string().required('El nombre es obligatorio'),
@@ -37,8 +48,9 @@ const ContactMe = () => {
       });
       
   return (
-    <ContactMeContainer>
-        <ContactMeTitle>Contactame</ContactMeTitle>
+    <ContactMeContainer name="Contacto">
+        <ContactMeTitle>Contacto</ContactMeTitle>
+        <ContactMeSubtitle>Completa el siguiente formulario y me pondré en contacto contigo lo antes posible.</ContactMeSubtitle>
         <Formik
             initialValues={{ name: '', email: '', message: '' }}
             validationSchema={validationSchema}
@@ -47,13 +59,14 @@ const ContactMe = () => {
             console.log(values);
             }}
         >
-            <Form>
+            <Form style={{maxWidth: 500}}>
                 {/* Campos del formulario */}
                 <Field
                     name="name"
                     as={TextField}
                     label="Nombre"
                     variant="outlined"
+                    autoComplete="off"
                     fullWidth
                     error={formik.touched.name && !!formik.errors.name}
                     helperText={formik.touched.name && formik.errors.name}
@@ -66,27 +79,19 @@ const ContactMe = () => {
                     as={TextField}
                     label="Correo electrónico"
                     variant="outlined"
-                    sx={{width: "60%", paddingRight: "10px", background: "#F5F5F5"}}
+                    autoComplete="off"
+                    fullWidth
+                    sx={{background: "#F5F5F5"}}
                     error={formik.touched.email && !!formik.errors.email}
                     helperText={formik.touched.email && formik.errors.email}
                     margin="normal"
                 />
-                <Field
-                    name="phone"
-                    as={TextField}
-                    label="Teléfono"
-                    variant="outlined"
-                    sx={{width: "40%", paddingLeft: "10px", background: "#F5F5F5"}}
-                    error={formik.touched.email && !!formik.errors.email}
-                    helperText={formik.touched.email && formik.errors.email}
-                    margin="normal"
-                />
-
                 <Field
                     name="message"
                     as={TextField}
                     label="Mensaje"
                     variant="outlined"
+                    autoComplete="off"
                     fullWidth
                     multiline
                     rows={4}
