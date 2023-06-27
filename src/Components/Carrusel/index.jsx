@@ -27,6 +27,7 @@ const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 8px;
+    min-height: 120px;
 `
 const CardTitle = styled.h2`
     color: ${primaryColor};
@@ -38,7 +39,7 @@ const CardSubtitle = styled.h3`
     font-size: ${fontSizeXsText};
     font-weight: 600;
 `
-const Btn = styled.button`
+const Btn = styled.a`
     font-size: ${fontSizeSmText};
     background-color: ${props => props.secundary ? 'transparent' : '#2157F2'};
     color: ${props => props.secundary ? '#2157F2' : '#ffff'};
@@ -78,9 +79,9 @@ const Carrusel = ({data}) => {
                     <CardContainer>
                         <CardTitle>{item.title}</CardTitle>
                         <CardSubtitle>{item.subtitle}</CardSubtitle>
-                            <div>
-                                <a target='_blank' href={item.repository}><Btn secundary="true">Repositorio</Btn></a>
-                                <a target='_blank' href={item.demo}><Btn>Ver demo</Btn></a>
+                            <div style={{marginTop: "25px"}}>
+                                <Btn target='_blank' href={item.repository} secundary="true">Repositorio</Btn>
+                                <Btn target='_blank' href={item.demo}>Ver demo</Btn>
                             </div>
                     </CardContainer>
                 </ProjectCard>

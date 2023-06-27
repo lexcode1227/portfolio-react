@@ -1,10 +1,17 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { fontSizeSmText, fontSizeLgText, secondaryColor, textColorRemark } from '../../constants'
+import { fontSizeSmText, fontSizeLgText, secondaryColor, textColorRemark, primaryColor } from '../../constants'
 import { Formik, Form, Field, ErrorMessage, useFormik } from 'formik';
 import * as Yup from 'yup';
 import { TextField, Button } from '@mui/material/';
 import { Element } from 'react-scroll';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  .hvr-underline-from-center::before {
+    background-color: ${secondaryColor};
+  }
+`;
 
 const ContactMeContainer = styled(Element).attrs(() => ({
     as: 'section',
@@ -100,7 +107,8 @@ const ContactMe = () => {
                     margin="normal"
                     sx={{background: "#F5F5F5"}}
                 />
-                <Button type="submit" variant="contained" color="primary" sx={{backgroundColor: "#2157F2", borderRadius: "6px", marginTop:"23px" }}>
+                <GlobalStyle />
+                <Button className='hvr-underline-from-center' type="submit" variant="contained" color="primary" sx={{backgroundColor: "#2157F2", borderRadius: "6px", marginTop:"23px", textTransform: "capitalize" }}>
                 Enviar
                 </Button>
             </Form>

@@ -1,8 +1,8 @@
 import React from 'react'
 import { styled } from 'styled-components'
 import bannerBg from '../../assets/Header-bg.png'
-import profileImg from '../../assets/profile-img-border.png' 
-import { cvUrl, fontSizeSmText, fontSizeSmTitle, textColor } from '../../constants'
+import profileImg from '../../assets/Profile-image.png' 
+import { cvUrl, fontSizeXsText, fontSizeMdText, fontSizeMdTitle, fontSizeSmText, fontSizeSmTitle, textColor } from '../../constants'
 
 const BannerContainer = styled.section`
   background-image: url(${bannerBg});
@@ -13,6 +13,10 @@ const BannerContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: 768px){
+    height: 986px;
+  }
 `
 const CardContainer = styled.div`
   width: 330px;
@@ -27,30 +31,53 @@ const CardContainer = styled.div`
   border-radius: 112.203px 0 112.203px;
   border: solid 1px rgba(255, 255, 255, 0.5);
   padding: 10px 15px;
+
+  @media (min-width: 768px){
+    width: 590px;
+    height: 845px;
+  }
 `
 const CardImg = styled.img`
   width: 187px;
   height: 187px;
   border-radius: 100px;
   border: #ffff 15px;
-  rotate: 3.24°;
+
+  @media (min-width: 768px){
+    width: 335px;
+    height: 335px;
+    margin-top: 35px;
+  }
 `
 const CardDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 11px;
-  height: 205px;
+  height: auto;
+  padding: 20px 4px;
+
+  @media (min-width: 768px){
+    padding: 20px;
+  }
 `
 const CardTitle = styled.h1`
   font-size: ${fontSizeSmTitle};
   font-weight: 600;
   color: ${textColor};
+
+  @media (min-width: 768px){
+    font-size: ${fontSizeMdTitle};
+  }
 `
 const CardText = styled.h3`
   font-size: ${fontSizeSmText};
   font-weight: 400;
   color: ${textColor};
+
+  @media (min-width: 768px){
+    font-size: ${fontSizeMdText};
+  }
 `
 const CardBtnContainer = styled.div`
   display: flex;
@@ -65,6 +92,10 @@ const Btn = styled.a`
   border-radius: 12px;
   cursor: pointer;
   text-decoration: none;
+
+  @media (min-width: 768px){
+    font-size: ${fontSizeXsText};
+  }
 `
 
 
