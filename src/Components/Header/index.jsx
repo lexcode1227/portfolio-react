@@ -17,7 +17,6 @@ const HeaderContainer = styled.header`
 
   @media (min-width: 768px){
     height: 75px;
-
   }
 `;
 
@@ -65,7 +64,7 @@ const Header = () => {
         </MobileMenuButton> 
       : <Navbar/>
       }
-      {openMenu && <Navbar/> }
+      {openMenu && <Navbar toggleMenu={toggleMenu}/>}
     </HeaderContainer>
   )
 }

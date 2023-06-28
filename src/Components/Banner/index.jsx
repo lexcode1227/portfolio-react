@@ -1,11 +1,14 @@
-import React from 'react'
-import { styled } from 'styled-components'
-import bannerBg from '../../assets/Header-bg.png'
-import profileImg from '../../assets/Profile-image.png' 
-import { cvUrl, fontSizeXsText, fontSizeMdText, fontSizeMdTitle, fontSizeSmText, fontSizeSmTitle, textColor } from '../../constants'
+import React from 'react';
+import { styled } from 'styled-components';
+import bannerBg from '../../assets/banner-bg.svg';
+import bg from '../../assets/bg.svg'
+import profileImg from '../../assets/Profile-image.png';
+import { cvUrl, fontSizeXsText, fontSizeMdText, fontSizeMdTitle, fontSizeSmText, fontSizeSmTitle, textColor, textColorRemark } from '../../constants';
+import { useMediaQuery } from '@mui/material';
 
 const BannerContainer = styled.section`
-  background-image: url(${bannerBg});
+  /* background-image:  url(${bannerBg}); */
+  background-image: url(${props => props.bgimage});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -16,6 +19,11 @@ const BannerContainer = styled.section`
 
   @media (min-width: 768px){
     height: 986px;
+  }
+
+  @media (min-width: 1200px){
+    height: 600px;
+    background-position: inherit;
   }
 `
 const CardContainer = styled.div`
@@ -35,6 +43,13 @@ const CardContainer = styled.div`
   @media (min-width: 768px){
     width: 590px;
     height: 845px;
+    justify-content: center;
+  }
+
+  @media (min-width: 1200px){
+    flex-direction: row;
+    width: 1000px;
+    height: 507px;
   }
 `
 const CardImg = styled.img`
@@ -59,6 +74,11 @@ const CardDiv = styled.div`
 
   @media (min-width: 768px){
     padding: 20px;
+    gap: 25px;
+  }
+
+  @media (min-width: 768px){
+    width: 500px;
   }
 `
 const CardTitle = styled.h1`
@@ -69,6 +89,15 @@ const CardTitle = styled.h1`
   @media (min-width: 768px){
     font-size: ${fontSizeMdTitle};
   }
+`
+const CardTitleHighlighted = styled.span`
+    font-size: ${fontSizeSmTitle};
+    font-weight: 600;
+    color: ${textColorRemark};
+
+    @media (min-width: 768px){
+    font-size: ${fontSizeMdTitle};
+  }    
 `
 const CardText = styled.h3`
   font-size: ${fontSizeSmText};
@@ -100,12 +129,13 @@ const Btn = styled.a`
 
 
 const Banner = () => {
+  const isDesktop = useMediaQuery('(min-width: 1200px)');
   return (
-    <BannerContainer>
+    <BannerContainer bgimage={isDesktop ? bg : bannerBg}>
       <CardContainer>
         <CardImg src={profileImg} alt='my profile image' />
         <CardDiv>
-          <CardTitle>Yo soy Henry Agustin</CardTitle>
+          <CardTitle>Yo soy <CardTitleHighlighted>Henry</CardTitleHighlighted> Alexander</CardTitle>
           <CardText>Soy formado en la Universidad Don Bosco en la carrera de Marketing Digital y actualmente estoy participando del proyecto Oracle ONE en Alura Latam.</CardText>
           <CardBtnContainer>
             <Btn href='#' >Ver Proyectos</Btn>

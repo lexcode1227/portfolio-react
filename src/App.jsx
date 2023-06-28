@@ -35,8 +35,12 @@ function App() {
       behavior: 'smooth',
     });
   };
+  const mainStyle = {
+    display: "flex",
+    flexDirection: "column",
+  }
   return (
-    <>
+    <main style={mainStyle}>
       <Header/>
       <Banner/>
       <Skills/>
@@ -49,7 +53,7 @@ function App() {
           <KeyboardArrowUpIcon />
         </ScrollToTopButton>
       )}
-    </>
+    </main>
   )
 }
 

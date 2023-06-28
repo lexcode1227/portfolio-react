@@ -24,7 +24,7 @@ const ContactMeContainer = styled(Element).attrs(() => ({
     gap: 16px;
     background-color: ${secondaryColor};
     padding: 15px;
-    padding-top: 75px;
+    padding-top: 25px;
 `
 const ContactMeTitle = styled.h2`
     font-size: ${fontSizeLgText};
@@ -66,7 +66,7 @@ const ContactMe = () => {
             console.log(values);
             }}
         >
-            <Form style={{maxWidth: 500}}>
+            <Form style={{maxWidth: 500, padding: "0 20px"}}>
                 {/* Campos del formulario */}
                 <Field
                     name="name"

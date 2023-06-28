@@ -20,7 +20,7 @@ const ProjectContainer = styled(Element).attrs(() => ({
     flex-direction: column;
     justify-content: space-evenly;
     margin: 0 auto;
-    padding: 75px 20px 35px 20px;
+    padding: 25px 20px 35px 20px;
     align-items: center;
 `
 const ProjectTitle = styled.h2`

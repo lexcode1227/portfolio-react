@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { textColorRemark, fontSizeLgText, fontSizeXsText, fontSizeSmTitle, primaryColor, textColor, secondaryColor } from '../../constants';
+import { fontSizeMdText, fontSizeMdTitle, fontSizeLgText, fontSizeXsText, fontSizeSmTitle, primaryColor, textColor, secondaryColor, textColorRemark } from '../../constants';
 import MapImg from '../../assets/country.png';
 import { Element } from 'react-scroll';
 
@@ -14,7 +14,11 @@ const AboutContainer = styled(Element).attrs(() => ({
     gap: 16px;
     height: 600px;
     background-color: ${primaryColor};
-    padding: 75px 0;
+    padding: 25px 0;
+
+    @media (min-width: 768px){
+    height: 750px;
+  }
 `
 const AboutTitle = styled.h2`
     font-size: ${fontSizeLgText};
@@ -33,11 +37,30 @@ const CardContainer = styled.div`
     border-radius: 54px 0px 54px;
     border: solid 2px rgba(255, 255, 255, 0.5);
     padding: 0 15px;
+
+    @media (min-width: 768px){
+    width: 563px;
+    height: 491px;
+    padding: 20px;
+  }
 `
 const CardTitle = styled.h2`
     font-size: ${fontSizeSmTitle};
     font-weight: 600;
     color: ${textColor};
+
+    @media (min-width: 768px){
+    font-size: ${fontSizeMdTitle};
+  }
+`
+const CardTitleHighlighted = styled.span`
+    font-size: ${fontSizeSmTitle};
+    font-weight: 600;
+    color: ${textColorRemark};
+
+    @media (min-width: 768px){
+    font-size: ${fontSizeMdTitle};
+  }    
 `
 const Text = styled.li`
     font-size: ${fontSizeXsText};
@@ -47,11 +70,19 @@ const Text = styled.li`
     &::before {
     content: ' 📍 ';
     }
+
+    @media (min-width: 768px){
+    font-size: ${fontSizeMdText};
+  }
 `
 const Map = styled.img`
     min-width: 270px;
     max-width: 50%;
     padding: 10px;
+
+    @media (min-width: 768px){
+        max-width: 500px;
+  }
 `
 
 const About = () => {
@@ -77,7 +108,7 @@ const About = () => {
     <AboutContainer name="Sobre mí">
         <AboutTitle>Sobre mí</AboutTitle>
         <CardContainer>
-            <CardTitle>Yo soy Henry Alexander</CardTitle>
+            <CardTitle>Yo soy <CardTitleHighlighted>Henry</CardTitleHighlighted> Alexander</CardTitle>
             <ul>
                 { data.map((dat)=> <Text key={dat.id}>{dat.text} </Text> ) }
             </ul>

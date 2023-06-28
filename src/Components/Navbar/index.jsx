@@ -69,7 +69,7 @@ const Item = styled(Link)`
         color: ${primaryColor};
     }
 `
-const Navbar = () => {
+const Navbar = ({toggleMenu}) => {
     const data = [
         {
             id: uuid(), 
@@ -93,7 +93,7 @@ const Navbar = () => {
         <GlobalStyle />
         <NavBar>
             {data.map((e)=>
-                <Item className='hvr-underline-from-left' key={e.id} to={e.title} smooth="true" duration={500}>{e.title}</Item>
+                <Item className='hvr-underline-from-left' key={e.id} to={e.title} smooth="true" onClick={toggleMenu} duration={500}>{e.title}</Item>
             )}
         </NavBar>
     </>
