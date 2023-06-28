@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import "./App.css"
 import Header from './Components/Header'
 import Banner from './Components/Banner'
@@ -7,40 +6,11 @@ import About from "./Components/About"
 import ContactMe from "./Components/ContactMe"
 import Footer from "./Components/Footer"
 import Projects from "./Components/Projects"
-import { ScrollToTopButton } from "./Components/ScrollToTopButton";
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import ScrollTop from "./Components/ScrollTop"
 
 function App() {
-  const [showScrollButton, setShowScrollButton] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setShowScrollButton(true);
-      } else {
-        setShowScrollButton(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-  const mainStyle = {
-    display: "flex",
-    flexDirection: "column",
-  }
   return (
-    <main style={mainStyle}>
+    <>
       <Header/>
       <Banner/>
       <Skills/>
@@ -48,12 +18,8 @@ function App() {
       <About/>
       <ContactMe/>
       <Footer/>
-      {showScrollButton && (
-        <ScrollToTopButton onClick={scrollToTop}>
-          <KeyboardArrowUpIcon />
-        </ScrollToTopButton>
-      )}
-    </main>
+      <ScrollTop/>
+    </>
   )
 }
 

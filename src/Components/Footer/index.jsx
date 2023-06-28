@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, IconButton, Stack, Typography } from '@mui/material'
 import Logo from "../../assets/logo-grey.svg"
-import FooterBg from "../../assets/wave-hai.svg"
+import FooterBg from "../../assets/wave-haik.svg"
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub'
 
@@ -10,12 +10,12 @@ const Footer = () => {
         backgroundColor: "transparent",
         backgroundImage: `url(${FooterBg})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "bottom",
         backgroundRepeat: "no-repeat",
         padding: "10px 0"
     }
     const iconsStyles = {
-        color: "#fff",
+        color: "#2157F2",
         cursor: "pointer",
     }
   return (

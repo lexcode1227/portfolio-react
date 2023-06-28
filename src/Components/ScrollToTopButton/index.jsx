@@ -6,7 +6,7 @@ export const ScrollToTopButton = styled.button`
   bottom: 20px;
   right: 20px;
   color: ${secondaryColor};
-  background-color: ${primaryColor};
+  background-color: ${textColorRemark};
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -17,8 +17,4 @@ export const ScrollToTopButton = styled.button`
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   z-index: 1;
-
-  /* &:hover {
-    background-color: ${textColorRemark};
-  } */
 `;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { styled } from 'styled-components'
 import { fontSizeLgText, textColorRemark } from '../../constants'
 import { v4 as uuid } from 'uuid';
@@ -10,6 +10,8 @@ import TipImg from "../../assets/Tip-calculator-app-home.png"
 import AluraFlixImg from "../../assets/AluraFlix.png"
 import Carrusel from '../Carrusel';
 import { Element } from 'react-scroll';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ProjectContainer = styled(Element).attrs(() => ({
     as: 'section',
@@ -29,6 +31,9 @@ const ProjectTitle = styled.h2`
     color: ${textColorRemark};
 `
 const Projects = () => {
+    useEffect(() => {
+            AOS.init();
+          }, []);
     const data = [
         {
             id: uuid(),
@@ -93,7 +98,7 @@ const Projects = () => {
     ]
   return (
     <ProjectContainer name="Proyectos">
-        <ProjectTitle>Proyectos</ProjectTitle>
+        <ProjectTitle data-aos="fade-up">Proyectos</ProjectTitle>
         <Carrusel data={data}/>
     </ProjectContainer>
   )

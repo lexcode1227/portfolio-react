@@ -1,16 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { styled } from 'styled-components';
 import { fontSizeMdText, fontSizeSmTitle, fontSizeLgText, fontSizeSmText, secondaryColor, textColorRemark } from '../../constants';
-import HtmlIcon from '../../assets/Icon-react.svg';
-import CssIcon from '../../assets/Icon-react.svg';
+import HtmlIcon from '../../assets/Icon-html.svg';
+import CssIcon from '../../assets/Icon-css.svg';
 import JavascriptIcon from '../../assets/Icon-Javascript.svg';
 import ReactIcon from '../../assets/Icon-react.svg';
 import MaterialUIIcon from '../../assets/Icon-material-ui.svg'; 
-import StyledIcon from '../../assets/Icon-react.svg'; 
+import StyledIcon from '../../assets/Icon-styled.svg'; 
 import GitIcon from '../../assets/Icon-git.svg' ;
 import FigmaIcon from '../../assets/Icon-figma.svg';
 import { Element } from 'react-scroll';
-import Dots from '../../assets/Dots.svg';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Container = styled(Element).attrs(() => ({
     as: 'section',
@@ -87,6 +88,9 @@ const SkillTitle = styled.h2`
 `
 
 const Skills = () => {
+    useEffect(() => {
+        AOS.init();
+      }, []);
     const data = [
         {
             id: "001",
@@ -131,10 +135,10 @@ const Skills = () => {
     ]
   return (
     <Container name="Habilidades">
-        <SkillsTitle>Habilidades</SkillsTitle>
+        <SkillsTitle data-aos="fade-up">Habilidades</SkillsTitle>
         <SkillsContainer>
             { data.map((dat)=> 
-                <SkillCard key={dat.id}>
+                <SkillCard key={dat.id} data-aos="fade-up" data-aos-duration="500">
                     <SkillImg  src={dat.img} alt={dat.title} />
                     <SkillTitle>{ dat.title }</SkillTitle>
                 </SkillCard>)

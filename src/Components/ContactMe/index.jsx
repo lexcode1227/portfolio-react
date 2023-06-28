@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { styled } from 'styled-components';
 import { fontSizeSmText, fontSizeLgText, secondaryColor, textColorRemark, primaryColor } from '../../constants'
 import { Formik, Form, Field, ErrorMessage, useFormik } from 'formik';
@@ -6,6 +6,8 @@ import * as Yup from 'yup';
 import { TextField, Button } from '@mui/material/';
 import { Element } from 'react-scroll';
 import { createGlobalStyle } from 'styled-components';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const GlobalStyle = createGlobalStyle`
   .hvr-underline-from-center::before {
@@ -45,6 +47,9 @@ const validationSchema = Yup.object({
   });
 
 const ContactMe = () => {
+    useEffect(() => {
+      AOS.init();
+    }, []);
     const formik = useFormik({
         initialValues: { name: '', email: '', message: '' },
         validationSchema: validationSchema,
@@ -56,8 +61,8 @@ const ContactMe = () => {
       
   return (
     <ContactMeContainer name="Contacto">
-        <ContactMeTitle>Contacto</ContactMeTitle>
-        <ContactMeSubtitle>Completa el siguiente formulario y me pondré en contacto contigo lo antes posible.</ContactMeSubtitle>
+        <ContactMeTitle data-aos="fade-up">Contacto</ContactMeTitle>
+        <ContactMeSubtitle data-aos="fade-down">Completa el siguiente formulario y me pondré en contacto contigo lo antes posible.</ContactMeSubtitle>
         <Formik
             initialValues={{ name: '', email: '', message: '' }}
             validationSchema={validationSchema}
@@ -66,7 +71,7 @@ const ContactMe = () => {
             console.log(values);
             }}
         >
-            <Form style={{maxWidth: 500, padding: "0 20px"}}>
+            <Form style={{maxWidth: 500, padding: "0 20px", overflowX: "hidden"}}>
                 {/* Campos del formulario */}
                 <Field
                     name="name"
@@ -79,6 +84,7 @@ const ContactMe = () => {
                     helperText={formik.touched.name && formik.errors.name}
                     margin="normal"
                     sx={{background: "#F5F5F5"}}
+                    data-aos="fade-left" data-aos-duration="500"
                     />
 
                 <Field
@@ -92,6 +98,7 @@ const ContactMe = () => {
                     error={formik.touched.email && !!formik.errors.email}
                     helperText={formik.touched.email && formik.errors.email}
                     margin="normal"
+                    data-aos="fade-right" data-aos-duration="500"
                 />
                 <Field
                     name="message"
@@ -106,15 +113,14 @@ const ContactMe = () => {
                     helperText={formik.touched.message && formik.errors.message}
                     margin="normal"
                     sx={{background: "#F5F5F5"}}
+                    data-aos="fade-left" data-aos-duration="500"
                 />
                 <GlobalStyle />
-                <Button className='hvr-underline-from-center' type="submit" variant="contained" color="primary" sx={{backgroundColor: "#2157F2", borderRadius: "6px", marginTop:"23px", textTransform: "capitalize" }}>
+                <Button data-aos="fade-right" data-aos-duration="500" className='hvr-underline-from-center' type="submit" variant="contained" color="primary" sx={{backgroundColor: "#2157F2", borderRadius: "6px", marginTop:"23px", textTransform: "capitalize" }}>
                 Enviar
                 </Button>
             </Form>
         </Formik>
-
-
     </ContactMeContainer>
   )
 }

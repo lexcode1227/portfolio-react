@@ -48,6 +48,9 @@ const NavBar = styled.nav`
         z-index: 0;
         padding-bottom: 0;
     }
+    @media (min-width: 1440px) {
+        padding-right: 50px;
+    }
 `
 
 const Item = styled(Link)`
@@ -93,7 +96,7 @@ const Navbar = ({toggleMenu}) => {
         <GlobalStyle />
         <NavBar>
             {data.map((e)=>
-                <Item className='hvr-underline-from-left' key={e.id} to={e.title} smooth="true" onClick={toggleMenu} duration={500}>{e.title}</Item>
+                <Item className='hvr-underline-from-left' key={e.id} to={e.title} smooth="true" onClick={toggleMenu} duration={2000}>{e.title}</Item>
             )}
         </NavBar>
     </>

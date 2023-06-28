@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { styled } from 'styled-components';
 import { fontSizeMdText, fontSizeMdTitle, fontSizeLgText, fontSizeXsText, fontSizeSmTitle, primaryColor, textColor, secondaryColor, textColorRemark } from '../../constants';
-import MapImg from '../../assets/country.png';
+import MapImg from '../../assets/country-.svg';
+import Icon from '../../assets/EllipseAbout.svg';
 import { Element } from 'react-scroll';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const AboutContainer = styled(Element).attrs(() => ({
     as: 'section',
@@ -15,15 +18,33 @@ const AboutContainer = styled(Element).attrs(() => ({
     height: 600px;
     background-color: ${primaryColor};
     padding: 25px 0;
+    overflow-x: hidden;
 
     @media (min-width: 768px){
-    height: 750px;
+    justify-content: space-between;
+    height: 820px;
+  }
+  @media (min-width: 1200px){
+    height: 600px;
+    justify-content: space-around;
   }
 `
 const AboutTitle = styled.h2`
     font-size: ${fontSizeLgText};
     font-weight: 500;
     color: ${secondaryColor};
+`
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  @media (min-width: 1200px){
+    max-width: 1440px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+  }
 `
 const CardContainer = styled.div`
     display: flex;
@@ -40,7 +61,7 @@ const CardContainer = styled.div`
 
     @media (min-width: 768px){
     width: 563px;
-    height: 491px;
+    height: 400px;
     padding: 20px;
   }
 `
@@ -68,7 +89,7 @@ const Text = styled.li`
     color: ${textColor};
     list-style: none;
     &::before {
-    content: ' 📍 ';
+    content: url(${Icon}) ;
     }
 
     @media (min-width: 768px){
@@ -86,34 +107,39 @@ const Map = styled.img`
 `
 
 const About = () => {
+    useEffect(() => {
+      AOS.init();
+    }, []);
     const data = [
         {
-            text: "Yo nací en El Salvador",
+            text: " Yo nací en El Salvador",
             id: "01"
         },
         {
-            text: "Tengo 21 años",
+            text: " Tengo 21 años",
             id: "02"
         },
         {
-            text: "Comencé a interesarme en la industria tech desde 2021",
+            text: " Comencé a interesarme en la industria tech desde 2021",
             id: "03"
         },
         {
-            text: "Soy un programador web con React",
+            text: " Soy un programador web con React",
             id: "04"
         },
     ]
   return (
     <AboutContainer name="Sobre mí">
-        <AboutTitle>Sobre mí</AboutTitle>
-        <CardContainer>
+        <AboutTitle data-aos="fade-up">Sobre mí</AboutTitle>
+        <Container>
+          <CardContainer data-aos="fade-left" data-aos-duration="500">
             <CardTitle>Yo soy <CardTitleHighlighted>Henry</CardTitleHighlighted> Alexander</CardTitle>
             <ul>
-                { data.map((dat)=> <Text key={dat.id}>{dat.text} </Text> ) }
+              { data.map((dat)=> <Text key={dat.id}>{dat.text} </Text> ) }
             </ul>
-        </CardContainer>
-        <Map src={MapImg} />
+          </CardContainer>
+          <Map src={MapImg} data-aos="fade-right" data-aos-duration="500" />
+        </Container>  
     </AboutContainer>
   )
 }

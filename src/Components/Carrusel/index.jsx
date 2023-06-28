@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { styled } from 'styled-components';
 import { fontSizeXsText, fontSizeSmText, primaryColor, } from '../../constants';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
@@ -8,6 +8,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import {v4 as uuid} from "uuid";
 import { createGlobalStyle } from 'styled-components';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const GlobalStyle = createGlobalStyle`
   .hvr-float-shadow::before {
@@ -52,7 +54,9 @@ const Btn = styled.a`
 
 const Carrusel = ({data}) => {
     SwiperCore.use([Navigation, Pagination])
-
+    useEffect(() => {
+      AOS.init();
+    }, []);
   return (
     <Swiper 
             spaceBetween={20}
@@ -74,7 +78,7 @@ const Carrusel = ({data}) => {
         {data.map((item)=>
             <SwiperSlide key={uuid()} style={{ display: "flex", justifyContent: "center"}}>
                 <GlobalStyle /> 
-                <ProjectCard className='hvr-float-shadow' key={item.id}>
+                <ProjectCard data-aos="zoom-in-up" data-aos-anchor-placement="center-bottom" className='hvr-float-shadow' key={item.id}>
                     <CardImg src={item.url} width="100%" height="auto"/>
                     <CardContainer>
                         <CardTitle>{item.title}</CardTitle>

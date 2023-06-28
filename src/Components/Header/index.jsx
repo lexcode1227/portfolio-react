@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LogoSmall from "../../assets/logo-grey.svg";
+import LogoWhite from "../../assets/logo-white.svg";
 import styled from 'styled-components';
 import { BiMenuAltRight } from "react-icons/bi";
 import { primaryColor } from '../../constants';
@@ -18,14 +19,27 @@ const HeaderContainer = styled.header`
   @media (min-width: 768px){
     height: 75px;
   }
+  @media (min-width: 1200px){
+    padding-left: 0;
+  }
 `;
-
+const LogoContainer = styled.div`
+  width: 50%;
+  background-color: ${primaryColor};
+  @media (min-width: 1920px){
+    width: 49.5%;
+  }
+`
 const Logo = styled.img`
   width: 37px;
   height: auto;
 
   @media (min-width: 768px){
     width: 72px;
+  }
+  @media (min-width: 1440px){
+    width: 79px;
+    margin-left: 50px;
   }
 `;
 
@@ -50,6 +64,7 @@ const MenuIconStyles = {
 
 const Header = () => {
     const isMobile = useMediaQuery('(max-width: 767px)');
+    const isDesktop = useMediaQuery('(min-width: 1200px)');
     const [openMenu, setOpenMenu] = useState(false)
     const toggleMenu = ()=>{
       setOpenMenu(!openMenu)
@@ -57,7 +72,7 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <Logo src={LogoSmall} alt="Logo" />
+      {isDesktop ? <LogoContainer><Logo src={LogoWhite} alt="Logo" /></LogoContainer> : <Logo src={LogoSmall} alt="Logo" />}
       {isMobile ? 
         <MobileMenuButton onClick={toggleMenu}>
           <BiMenuAltRight color={primaryColor} style={MenuIconStyles}/>  
