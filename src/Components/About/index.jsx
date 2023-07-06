@@ -88,6 +88,7 @@ const Text = styled.li`
     font-weight: 400;
     color: ${textColor};
     list-style: none;
+    padding-bottom: 5px;
     &::before {
     content: url(${Icon}) ;
     }

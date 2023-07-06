@@ -1,13 +1,14 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import { styled } from 'styled-components';
-import { fontSizeSmText, fontSizeLgText, secondaryColor, textColorRemark, primaryColor } from '../../constants'
-import { Formik, Form, Field, ErrorMessage, useFormik } from 'formik';
+import { fontSizeSmText, fontSizeLgText, secondaryColor, textColorRemark } from '../../constants'
+import { Formik, Form, Field, ErrorMessage,  } from 'formik';
 import * as Yup from 'yup';
 import { TextField, Button } from '@mui/material/';
 import { Element } from 'react-scroll';
 import { createGlobalStyle } from 'styled-components';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import SubmitNotification from '../SubmitNotification';
 
 const GlobalStyle = createGlobalStyle`
   .hvr-underline-from-center::before {
@@ -46,83 +47,106 @@ const validationSchema = Yup.object({
     message: Yup.string().required('El mensaje es obligatorio'),
   });
 
-const ContactMe = () => {
+  const ContactMe = () => {
     useEffect(() => {
       AOS.init();
     }, []);
-    const formik = useFormik({
-        initialValues: { name: '', email: '', message: '' },
-        validationSchema: validationSchema,
-        onSubmit: (values) => {
-          // Lógica para manejar el envío del formulario
-          console.log(values);
-        },
-      });
-      
-  return (
-    <ContactMeContainer name="Contacto">
-        <ContactMeTitle data-aos="fade-up">Contacto</ContactMeTitle>
-        <ContactMeSubtitle data-aos="fade-down">Completa el siguiente formulario y me pondré en contacto contigo lo antes posible.</ContactMeSubtitle>
-        <Formik
-            initialValues={{ name: '', email: '', message: '' }}
-            validationSchema={validationSchema}
-            onSubmit={(values) => {
-            // Lógica para manejar el envío del formulario
-            console.log(values);
-            }}
-        >
-            <Form style={{maxWidth: 500, padding: "0 20px", overflowX: "hidden"}}>
-                {/* Campos del formulario */}
-                <Field
-                    name="name"
-                    as={TextField}
-                    label="Nombre"
-                    variant="outlined"
-                    autoComplete="off"
-                    fullWidth
-                    error={formik.touched.name && !!formik.errors.name}
-                    helperText={formik.touched.name && formik.errors.name}
-                    margin="normal"
-                    sx={{background: "#F5F5F5"}}
-                    data-aos="fade-left" data-aos-duration="500"
-                    />
+    const [snackbarOpen, setSnackbarOpen] = useState(false)
+    const [snackbarMessage, setSnackbarMessage] = useState('')
+    const showSnackbar = (message) => {
+        setSnackbarMessage(message);
+        setSnackbarOpen(true);
+      }
+    const submitData = async (values, { resetForm }) => {
+      try {
+        const response = await fetch('https://formspree.io/f/moqoaovw', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(values),
+        });
+  
+        if (response.ok) {
+          showSnackbar("Formulario enviado correctamente");
+          resetForm();
+        } else {
+          showSnackbar("Error al enviar el formulario");
+        }
 
-                <Field
-                    name="email"
-                    as={TextField}
-                    label="Correo electrónico"
-                    variant="outlined"
-                    autoComplete="off"
-                    fullWidth
-                    sx={{background: "#F5F5F5"}}
-                    error={formik.touched.email && !!formik.errors.email}
-                    helperText={formik.touched.email && formik.errors.email}
-                    margin="normal"
-                    data-aos="fade-right" data-aos-duration="500"
-                />
-                <Field
-                    name="message"
-                    as={TextField}
-                    label="Mensaje"
-                    variant="outlined"
-                    autoComplete="off"
-                    fullWidth
-                    multiline
-                    rows={4}
-                    error={formik.touched.message && !!formik.errors.message}
-                    helperText={formik.touched.message && formik.errors.message}
-                    margin="normal"
-                    sx={{background: "#F5F5F5"}}
-                    data-aos="fade-left" data-aos-duration="500"
-                />
-                <GlobalStyle />
-                <Button data-aos="fade-right" data-aos-duration="500" className='hvr-underline-from-center' type="submit" variant="contained" color="primary" sx={{backgroundColor: "#2157F2", borderRadius: "6px", marginTop:"23px", textTransform: "capitalize" }}>
-                Enviar
-                </Button>
-            </Form>
+      } catch (error) {
+        console.log('Error al enviar el formulario:', error);
+      }
+    };
+
+    return (
+      <ContactMeContainer name="Contacto">
+        <ContactMeTitle data-aos="fade-up">Contacto</ContactMeTitle>
+        <ContactMeSubtitle data-aos="fade-down">
+          Completa el siguiente formulario y me pondré en contacto contigo lo antes posible.
+        </ContactMeSubtitle>
+        <Formik
+          initialValues={{ name: '', email: '', message: '' }}
+          validationSchema={validationSchema}
+          onSubmit={submitData}
+        >
+          <Form style={{ maxWidth: 500, padding: '0 20px', overflowX: 'hidden' }}>
+            <Field
+              name="name"
+              as={TextField}
+              label="Nombre"
+              variant="outlined"
+              autoComplete="off"
+              fullWidth
+              margin="normal"
+              sx={{ background: '#F5F5F5' }}
+              data-aos="fade-left"
+              data-aos-duration="500"
+            />
+  
+            <Field
+              name="email"
+              as={TextField}
+              label="Correo electrónico"
+              variant="outlined"
+              autoComplete="off"
+              fullWidth
+              sx={{ background: '#F5F5F5' }}
+              margin="normal"
+              data-aos="fade-right"
+              data-aos-duration="500"
+            />
+            <Field
+              name="message"
+              as={TextField}
+              label="Mensaje"
+              variant="outlined"
+              autoComplete="off"
+              fullWidth
+              multiline
+              rows={4}
+              margin="normal"
+              sx={{ background: '#F5F5F5' }}
+              data-aos="fade-left"
+              data-aos-duration="500"
+            />
+            <GlobalStyle />
+            <Button
+              data-aos="fade-right"
+              data-aos-duration="500"
+              className="hvr-underline-from-center"
+              type="submit"
+              variant="contained"
+              color="primary"
+              sx={{ backgroundColor: '#2157F2', borderRadius: '6px', marginTop: '23px', textTransform: 'capitalize' }}
+            >
+              Enviar
+            </Button>
+          </Form>
         </Formik>
-    </ContactMeContainer>
-  )
-}
+        <SubmitNotification snackbarOpen={snackbarOpen} setSnackbarOpen={setSnackbarOpen} snackbarMessage={snackbarMessage}/>
+      </ContactMeContainer>
+    );
+  };
 
 export default ContactMe

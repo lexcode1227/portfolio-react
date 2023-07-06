@@ -47,6 +47,16 @@ const Projects = () => {
         },
         {
             id: uuid(),
+            title: "Github users search",
+            subtitle: "Platzi Challenge",
+            description: "",
+            img: "https://i.imgur.com/OZoFgIk.png",
+            url: GUSImg,
+            repository: "https://github.com/lexcode1227/Tip-calculator-app",
+            demo: "https://lexcode1227.github.io/Tip-calculator-app/"
+        },
+        {
+            id: uuid(),
             title: "Advice Generator App",
             subtitle: "Frontend Mentor Challenge",
             description: "",
@@ -64,16 +74,6 @@ const Projects = () => {
             url: EncriptaImg,
             repository: "https://github.com/lexcode1227/decodificador-de-texto",
             demo: "https://lexcode1227.github.io/decodificador-de-texto/"
-        },
-        {
-            id: uuid(),
-            title: "Github users search",
-            subtitle: "Platzi Challenge",
-            description: "",
-            img: "https://i.imgur.com/OZoFgIk.png",
-            url: GUSImg,
-            repository: "https://github.com/lexcode1227/Tip-calculator-app",
-            demo: "https://lexcode1227.github.io/Tip-calculator-app/"
         },
         {
             id: uuid(),
@@ -97,7 +97,7 @@ const Projects = () => {
         },
     ]
   return (
-    <ProjectContainer name="Proyectos">
+    <ProjectContainer name="Proyectos" id='projects'>
         <ProjectTitle data-aos="fade-up">Proyectos</ProjectTitle>
         <Carrusel data={data}/>
     </ProjectContainer>

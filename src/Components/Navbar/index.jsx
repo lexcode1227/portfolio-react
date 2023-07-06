@@ -47,9 +47,11 @@ const NavBar = styled.nav`
         color: ${primaryColor};
         z-index: 0;
         padding-bottom: 0;
+        width: 60%;
     }
     @media (min-width: 1440px) {
         padding-right: 50px;
+        width: 100%;
     }
 `
 

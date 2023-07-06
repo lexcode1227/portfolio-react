@@ -76,15 +76,13 @@ const CardDiv = styled.div`
   justify-content: flex-start;
   gap: 11px;
   height: auto;
-  padding: 20px 4px;
-
-  @media (min-width: 768px){
-    padding: 20px;
-    gap: 25px;
-  }
+  padding: 10px 4px;
 
   @media (min-width: 768px){
     width: 500px;
+    padding-top: 0;
+    padding: 20px;
+    gap: 25px;
   }
 `
 const CardTitle = styled.h1`
@@ -132,8 +130,6 @@ const Btn = styled.a`
     font-size: ${fontSizeXsText};
   }
 `
-
-
 const Banner = () => {
   useEffect(() => {
     AOS.init();
@@ -145,9 +141,9 @@ const Banner = () => {
         <CardImg src={profileImg} alt='my profile image' data-aos="zoom-in-up" data-aos-anchor-placement="center-bottom" data-aos-delay="600" />
         <CardDiv>
           <CardTitle data-aos="fade-left" data-aos-duration="500">Yo soy <CardTitleHighlighted data-aos="zoom-in-up" data-aos-anchor-placement="center-bottom" data-aos-delay="600">Henry</CardTitleHighlighted> Alexander</CardTitle>
-          <CardText data-aos="fade-right" data-aos-duration="500">Soy formado en la Universidad Don Bosco en la carrera de Marketing Digital y actualmente estoy participando del proyecto Oracle ONE en Alura Latam.</CardText>
+          <CardText data-aos="fade-right" data-aos-duration="500">Soy formado en la Universidad Don Bosco en la carrera de Marketing y actualmente estoy participando del proyecto Oracle ONE en Alura Latam para formarme como Frontend Developer con React.</CardText>
           <CardBtnContainer>
-            <Btn href='#' data-aos="fade-left" data-aos-duration="500" >Ver Proyectos</Btn>
+            <Btn href='#projects' data-aos="fade-left" data-aos-duration="500" >Ver Proyectos</Btn>
             <Btn secundary="true" href={cvUrl} target="_blank" data-aos="fade-right" data-aos-duration="500" >Descargar CV</Btn>
           </CardBtnContainer>
         </CardDiv>
