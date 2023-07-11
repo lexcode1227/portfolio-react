@@ -4,7 +4,7 @@ import { fontSizeLgText, textColorRemark } from '../../constants'
 import { v4 as uuid } from 'uuid';
 import AGAImg from "../../assets/Advice-Generator-App.png"
 import EncriptaImg from "../../assets/Encriptador-de-Texto.png"
-import GUSImg from "../../assets/GithubUserSearch.png"
+import GUSImg from "../../assets/Github-User-Finder.png"
 import MyOrgImg from "../../assets/MyOrg.png"
 import TipImg from "../../assets/Tip-calculator-app-home.png"
 import AluraFlixImg from "../../assets/AluraFlix.png"
@@ -47,13 +47,13 @@ const Projects = () => {
         },
         {
             id: uuid(),
-            title: "Github users search",
+            title: "Github users finder",
             subtitle: "Platzi Challenge",
             description: "",
             img: "https://i.imgur.com/OZoFgIk.png",
             url: GUSImg,
-            repository: "https://github.com/lexcode1227/Tip-calculator-app",
-            demo: "https://lexcode1227.github.io/Tip-calculator-app/"
+            repository: "https://github.com/lexcode1227/github-user-search",
+            demo: "https://fanciful-gecko-057503.netlify.app/"
         },
         {
             id: uuid(),
