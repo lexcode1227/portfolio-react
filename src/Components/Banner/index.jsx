@@ -80,8 +80,7 @@ const CardDiv = styled.div`
 
   @media (min-width: 768px){
     width: 500px;
-    padding-top: 0;
-    padding: 20px;
+    padding: 0 20px 20px 20px;
     gap: 25px;
   }
 `
