@@ -24,8 +24,11 @@ const HeaderContainer = styled.header`
   }
 `;
 const LogoContainer = styled.div`
-  width: 50%;
+  width: 34.7%;
   background-color: ${primaryColor};
+  @media (min-width: 1440px){
+    width: 50%;
+  }
   @media (min-width: 1920px){
     width: 49.5%;
   }
