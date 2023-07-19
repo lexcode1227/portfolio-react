@@ -33,6 +33,10 @@ const AboutTitle = styled.h2`
     font-size: ${fontSizeLgText};
     font-weight: 500;
     color: ${secondaryColor};
+
+    @media (min-width: 768px){
+    font-size: ${fontSizeSmTitle};
+  }
 `
 const Container = styled.div`
   display: flex;
@@ -71,7 +75,7 @@ const CardTitle = styled.h2`
     color: ${textColor};
 
     @media (min-width: 768px){
-    font-size: ${fontSizeSmTitle};
+    font-size: ${fontSizeMdTitle};
   }
 `
 const CardTitleHighlighted = styled.span`
