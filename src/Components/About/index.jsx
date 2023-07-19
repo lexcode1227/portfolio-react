@@ -71,7 +71,7 @@ const CardTitle = styled.h2`
     color: ${textColor};
 
     @media (min-width: 768px){
-    font-size: ${fontSizeMdTitle};
+    font-size: ${fontSizeSmTitle};
   }
 `
 const CardTitleHighlighted = styled.span`

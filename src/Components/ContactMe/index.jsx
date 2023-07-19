@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { styled } from 'styled-components';
-import { fontSizeSmText, fontSizeLgText, secondaryColor, textColorRemark } from '../../constants'
+import { fontSizeSmTitle, fontSizeSmText, fontSizeLgText, secondaryColor, textColorRemark } from '../../constants'
 import { Formik, Form, Field, ErrorMessage,  } from 'formik';
 import * as Yup from 'yup';
 import { TextField, Button } from '@mui/material/';
@@ -33,6 +33,10 @@ const ContactMeTitle = styled.h2`
     font-size: ${fontSizeLgText};
     font-weight: 500;
     color: ${textColorRemark};
+        
+    @media (min-width: 768px){
+    font-size: ${fontSizeSmTitle};
+  }
 `
 const ContactMeSubtitle = styled.h3`
     font-size: ${fontSizeSmText};

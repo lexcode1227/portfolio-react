@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import { styled } from 'styled-components'
-import { fontSizeLgText, textColorRemark } from '../../constants'
+import { fontSizeSmTitle, fontSizeLgText, textColorRemark } from '../../constants'
 import { v4 as uuid } from 'uuid';
 import AGAImg from "../../assets/Advice-Generator-App.png"
 import EncriptaImg from "../../assets/Encriptador-de-Texto.png"
@@ -29,6 +29,10 @@ const ProjectTitle = styled.h2`
     font-size: ${fontSizeLgText};
     font-weight: 500;
     color: ${textColorRemark};
+
+    @media (min-width: 768px){
+    font-size: ${fontSizeSmTitle};
+  }
 `
 const Projects = () => {
     useEffect(() => {
