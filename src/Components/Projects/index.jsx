@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import { styled } from 'styled-components'
 import { fontSizeSmTitle, fontSizeLgText, textColorRemark } from '../../constants'
 import { v4 as uuid } from 'uuid';
+import AvoShop from "../../assets/Avocate Shop _ platzi.png"
 import AGAImg from "../../assets/Advice-Generator-App.png"
 import EncriptaImg from "../../assets/Encriptador-de-Texto.png"
 import GUSImg from "../../assets/Github-User-Finder.png"
@@ -41,13 +42,12 @@ const Projects = () => {
     const data = [
         {
             id: uuid(),
-            title: "Tip Calculator App",
-            subtitle: "Frontend Mentor Challenge",
+            title: "Avocate Store",
+            subtitle: "Platzi Challenge",
             description: "",
-            img: "https://i.imgur.com/JOFcRl8.png",
-            url: TipImg,
-            repository: "https://github.com/lexcode1227/Tip-calculator-app",
-            demo: "https://lexcode1227.github.io/Tip-calculator-app/"
+            url: AvoShop,
+            repository: "https://github.com/lexcode1227/next-aguacates",
+            demo: "https://next-aguacates.vercel.app/"
         },
         {
             id: uuid(),
@@ -58,6 +58,16 @@ const Projects = () => {
             url: GUSImg,
             repository: "https://github.com/lexcode1227/github-user-search",
             demo: "https://fanciful-gecko-057503.netlify.app/"
+        },
+        {
+            id: uuid(),
+            title: "Tip Calculator App",
+            subtitle: "Frontend Mentor Challenge",
+            description: "",
+            img: "https://i.imgur.com/JOFcRl8.png",
+            url: TipImg,
+            repository: "https://github.com/lexcode1227/Tip-calculator-app",
+            demo: "https://lexcode1227.github.io/Tip-calculator-app/"
         },
         {
             id: uuid(),
