@@ -3,6 +3,7 @@ import { styled } from 'styled-components'
 import { fontSizeSmTitle, fontSizeLgText, textColorRemark } from '../../constants'
 import { v4 as uuid } from 'uuid';
 import AvoShop from "../../assets/Avocate Shop _ platzi.png"
+import DocDocImg from "../../assets/DocDoc-Home.png"
 import AGAImg from "../../assets/Advice-Generator-App.png"
 import EncriptaImg from "../../assets/Encriptador-de-Texto.png"
 import GUSImg from "../../assets/Github-User-Finder.png"
@@ -48,6 +49,15 @@ const Projects = () => {
             url: AvoShop,
             repository: "https://github.com/lexcode1227/next-aguacates",
             demo: "https://next-aguacates.vercel.app/"
+        },
+        {
+            id: uuid(),
+            title: "Doc Doc Clinic",
+            subtitle: "Challenge",
+            description: "",
+            url: DocDocImg,
+            repository: "https://github.com/lexcode1227/docdoc-clinic",
+            demo: "https://docdoc-clinic.vercel.app/"
         },
         {
             id: uuid(),
