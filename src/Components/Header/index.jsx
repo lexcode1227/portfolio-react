@@ -71,6 +71,11 @@ const Header = () => {
     const [openMenu, setOpenMenu] = useState(false)
     const toggleMenu = ()=>{
       setOpenMenu(!openMenu)
+      if (!openMenu) {
+        document.body.classList.add('no-scroll');
+      } else {
+        document.body.classList.remove('no-scroll');
+      }
     }
 
   return (
