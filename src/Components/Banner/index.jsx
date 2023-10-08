@@ -30,7 +30,7 @@ const BannerContainer = styled.section`
 `
 const CardContainer = styled.div`
   width: 330px;
-  height: 525px;
+  height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -44,7 +44,7 @@ const CardContainer = styled.div`
 
   @media (min-width: 768px){
     width: 590px;
-    height: 645px;
+    height: 660px;
     justify-content: center;
   }
 
@@ -140,7 +140,7 @@ const Banner = () => {
         <CardImg src={profileImg} alt='my profile image' data-aos="zoom-in-up" data-aos-anchor-placement="center-bottom" data-aos-delay="600" />
         <CardDiv>
           <CardTitle data-aos="fade-left" data-aos-duration="500">Yo soy <CardTitleHighlighted data-aos="zoom-in-up" data-aos-anchor-placement="center-bottom" data-aos-delay="600">Henry</CardTitleHighlighted> Alexander</CardTitle>
-          <CardText data-aos="fade-right" data-aos-duration="500">Soy formado en la Universidad Don Bosco en la carrera de Marketing y actualmente estoy participando del proyecto Oracle ONE en Alura Latam para formarme como Frontend Developer con React.</CardText>
+          <CardText data-aos="fade-right" data-aos-duration="500">Soy un Desarrollador Frontend con React Js, con dos años de experiencia en proyectos de uso personal como landing pages, sitios web y herramientas. Busco colaborar y plasmar mis conocimientos técnicos en nuevos proyectos.</CardText>
           <CardBtnContainer>
             <Btn href='#projects' data-aos="fade-left" data-aos-duration="500" >Ver Proyectos</Btn>
             <Btn secundary="true" href={cvUrl} target="_blank" data-aos="fade-right" data-aos-duration="500" >Descargar CV</Btn>

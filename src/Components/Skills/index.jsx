@@ -9,9 +9,12 @@ import MaterialUIIcon from '../../assets/Icon-material-ui.svg';
 import StyledIcon from '../../assets/Icon-styled.svg'; 
 import GitIcon from '../../assets/Icon-git.svg' ;
 import FigmaIcon from '../../assets/Icon-figma.svg';
+import ReduxIcon from '../../assets/Icon-redux.svg';
+import NextIcon from '../../assets/Icon-next.svg';
 import { Element } from 'react-scroll';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { v4 as uuid } from 'uuid';
 
 const Container = styled(Element).attrs(() => ({
     as: 'section',
@@ -21,7 +24,7 @@ const Container = styled(Element).attrs(() => ({
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 11px;
+    gap: 20px;
     padding-top: 25px;
 `
 const SkillsTitle = styled.h2`
@@ -36,15 +39,20 @@ const SkillsTitle = styled.h2`
 const SkillsContainer = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
     width: 350px;
-    height: 530px; 
+    height: 680px; 
 
     @media (min-width: 768px){
     font-size: ${fontSizeSmTitle};
     width: 680px;
-    height: 400px;
+    height: 500px;
+  }
+    @media (min-width: 1024px){
+    font-size: ${fontSizeSmTitle};
+    width: 880px;
+    height: 350px;
   }
 `
 const SkillCard = styled.div`
@@ -93,44 +101,54 @@ const Skills = () => {
       }, []);
     const data = [
         {
-            id: "001",
+            id: uuid(),
             title: "Html",
             img: HtmlIcon,
         },
         {
-            id: "002",
+            id: uuid(),
             title: "Css",
             img: CssIcon,
         },
         {
-            id: "003",
+            id: uuid(),
             title: "Javascript",
             img: JavascriptIcon,
         },
         {
-            id: "004",
+            id: uuid(),
             title: "React",
             img: ReactIcon,
         },
         {
-            id: "005",
-            title: "Material UI",
-            img: MaterialUIIcon,
+          id: uuid(),
+          title: "Redux Toolkit",
+          img: ReduxIcon,
         },
         {
-            id: "006",
-            title: "Styled-Components",
-            img: StyledIcon,
+          id: uuid(),
+          title: "Next Js",
+          img: NextIcon,
         },
         {
-            id: "007",
-            title: "Figma",
-            img: FigmaIcon,
+          id: uuid(),
+          title: "Material UI",
+          img: MaterialUIIcon,
         },
         {
-            id: "008",
-            title: "Git",
-            img: GitIcon,
+          id: uuid(),
+          title: "Styled-Components",
+          img: StyledIcon,
+        },
+        {
+          id: uuid(),
+          title: "Figma",
+          img: FigmaIcon,
+        },
+        {
+          id: uuid(),
+          title: "Git",
+          img: GitIcon,
         },
     ]
   return (
@@ -139,7 +157,7 @@ const Skills = () => {
         <SkillsContainer>
             { data.map((dat)=> 
                 <SkillCard key={dat.id} data-aos="fade-up" data-aos-duration="500">
-                    <SkillImg  src={dat.img} alt={dat.title} />
+                    <SkillImg src={dat.img} alt={dat.title} />
                     <SkillTitle>{ dat.title }</SkillTitle>
                 </SkillCard>)
             }
