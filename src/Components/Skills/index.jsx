@@ -11,6 +11,9 @@ import GitIcon from '../../assets/Icon-git.svg' ;
 import FigmaIcon from '../../assets/Icon-figma.svg';
 import ReduxIcon from '../../assets/Icon-redux.svg';
 import NextIcon from '../../assets/Icon-next.svg';
+import NodeIcon from '../../assets/Icon-nodejs.svg';
+import ExpressIcon from '../../assets/Icon-express.svg';
+import JWTIcon from '../../assets/Icon-jwt.svg';
 import { Element } from 'react-scroll';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -42,18 +45,27 @@ const SkillsContainer = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
     width: 350px;
-    height: 680px; 
+    height: 1080px; 
+    column-gap: 20px;
 
     @media (min-width: 768px){
     font-size: ${fontSizeSmTitle};
     width: 680px;
-    height: 500px;
+    height: 800px;
   }
     @media (min-width: 1024px){
     font-size: ${fontSizeSmTitle};
-    width: 880px;
-    height: 350px;
+    width: 100%;
+    max-width: 1065px;
+    height: 550px;
+    column-gap: 20px;
+    justify-content: space-between;
+    padding: 0 20px;
   }
+    @media (min-width: 1075px) {
+      justify-content: flex-start;
+      padding: 0;
+    }
 `
 const SkillCard = styled.div`
     width: 146px;
@@ -149,6 +161,21 @@ const Skills = () => {
           id: uuid(),
           title: "Git",
           img: GitIcon,
+        },
+        {
+          id: uuid(),
+          title: "Node js",
+          img: NodeIcon,
+        },
+        {
+          id: uuid(),
+          title: "Express js",
+          img: ExpressIcon,
+        },
+        {
+          id: uuid(),
+          title: "JWT",
+          img: JWTIcon,
         },
     ]
   return (

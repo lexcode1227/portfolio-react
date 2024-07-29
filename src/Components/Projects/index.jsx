@@ -2,6 +2,8 @@ import React, {useEffect} from 'react'
 import { styled } from 'styled-components'
 import { fontSizeSmTitle, fontSizeLgText, textColorRemark } from '../../constants'
 import { v4 as uuid } from 'uuid';
+import openFashionImg from "../../assets/openfashion.png"
+import primeImg from "../../assets/prime-services-web.png"
 import AvoShop from "../../assets/Avocate Shop _ platzi.png"
 import DocDocImg from "../../assets/DocDoc-Home.png"
 import AGAImg from "../../assets/Advice-Generator-App.png"
@@ -43,12 +45,21 @@ const Projects = () => {
     const data = [
         {
             id: uuid(),
-            title: "Avocate Store",
-            subtitle: "Platzi Challenge",
+            title: "Open Fashion Ecommerce",
+            subtitle: "Customer project",
             description: "",
-            url: AvoShop,
-            repository: "https://github.com/lexcode1227/next-aguacates",
-            demo: "https://next-aguacates.vercel.app/"
+            url: openFashionImg,
+            repository: "https://github.com/lexcode1227/catalogoWeb",
+            demo: "https://openfashion-web.vercel.app/"
+        },
+        {
+            id: uuid(),
+            title: "Prime Services",
+            subtitle: "Customer project",
+            description: "",
+            url: primeImg,
+            repository: "https://github.com/lexcode1227/prime-services",
+            demo: "https://prime-services.vercel.app/"
         },
         {
             id: uuid(),
@@ -58,6 +69,15 @@ const Projects = () => {
             url: DocDocImg,
             repository: "https://github.com/lexcode1227/docdoc-clinic",
             demo: "https://docdoc-clinic.vercel.app/"
+        },
+        {
+            id: uuid(),
+            title: "Avocate Store",
+            subtitle: "Platzi Challenge",
+            description: "",
+            url: AvoShop,
+            repository: "https://github.com/lexcode1227/next-aguacates",
+            demo: "https://next-aguacates.vercel.app/"
         },
         {
             id: uuid(),
