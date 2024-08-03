@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { styled } from 'styled-components';
-import { fontSizeXsText, fontSizeSmText, primaryColor, } from '../../constants';
+import { fontSizeXsText, fontSizeSmText, primaryColor, textColorRemark, } from '../../constants';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -41,6 +41,61 @@ const CardSubtitle = styled.h3`
     font-size: ${fontSizeXsText};
     font-weight: 600;
 `
+const CardText = styled.p`
+    color: black;
+    font-size: ${fontSizeXsText};
+    font-weight: 400;
+    text-align: justify;
+    padding: 0 35px;
+`
+const Icon = styled.img`
+    /* border: 2px solid ${primaryColor}; */
+    border-radius: 50%;
+    width: 54px;
+    height: 54px;
+`
+const TooltipWrapper = styled.div`
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+`;
+
+const TooltipText = styled.span`
+  visibility: hidden;
+  width: 110px;
+  background-color: ${textColorRemark};
+  color: #fff;
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  position: absolute;
+  z-index: 10;
+  bottom: 100%; /* Position the tooltip above the element */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  pointer-events: none; /* Prevent the tooltip from interfering with mouse events */
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%; /* Arrow pointing down */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #2157F2 transparent transparent transparent;
+  }
+`;
+
+const TooltipWrapperHover = styled(TooltipWrapper)`
+  &:hover ${TooltipText} {
+    visibility: visible;
+    opacity: 1;
+  }
+`;
 const Btn = styled.a`
     font-size: ${fontSizeSmText};
     background-color: ${props => props.secundary ? 'transparent' : '#2157F2'};
@@ -83,8 +138,20 @@ const Carrusel = ({data}) => {
                     <CardContainer>
                         <CardTitle>{item.title}</CardTitle>
                         <CardSubtitle>{item.subtitle}</CardSubtitle>
+                        <CardText>{item.description}</CardText>
+                        <CardSubtitle>Stack:</CardSubtitle>
+                            <div style={{marginTop: "25px", display: "flex", gap: "4px", padding: "0 35px" }}>
+                                {item.stack.map((i, index) => (
+                                    <div key={index}>
+                                        <TooltipWrapperHover>
+                                          <Icon src={i.icon}/>
+                                          <TooltipText>{i.name}</TooltipText>
+                                        </TooltipWrapperHover>
+                                    </div>
+                                  ) )}
+                            </div>
                             <div style={{marginTop: "25px"}}>
-                                <Btn target='_blank' href={item.repository} secundary="true">Repositorio</Btn>
+                                <Btn target='_blank' href={item.repository} secundary="true" className='hvr-underline-from-left'>Repositorio</Btn>
                                 <Btn target='_blank' href={item.demo}>Ver demo</Btn>
                             </div>
                     </CardContainer>

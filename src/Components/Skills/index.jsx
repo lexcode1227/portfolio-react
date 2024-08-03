@@ -6,7 +6,8 @@ import CssIcon from '../../assets/Icon-css.svg';
 import JavascriptIcon from '../../assets/Icon-Javascript.svg';
 import ReactIcon from '../../assets/Icon-react.svg';
 import MaterialUIIcon from '../../assets/Icon-material-ui.svg'; 
-import StyledIcon from '../../assets/Icon-styled.svg'; 
+import StyledIcon from '../../assets/Icon-styled.svg';
+import TailwindIcon from '../../assets/Icon-tailwind.svg';
 import GitIcon from '../../assets/Icon-git.svg' ;
 import FigmaIcon from '../../assets/Icon-figma.svg';
 import ReduxIcon from '../../assets/Icon-redux.svg';
@@ -90,6 +91,7 @@ const SkillImg = styled.img`
     left: 40px;
     width: 68px;
     height: auto;
+    color: white;
 
     @media (min-width: 768px){
     left: 46px;
@@ -112,16 +114,16 @@ const Skills = () => {
         AOS.init();
       }, []);
     const data = [
-        {
-            id: uuid(),
-            title: "Html",
-            img: HtmlIcon,
-        },
-        {
-            id: uuid(),
-            title: "Css",
-            img: CssIcon,
-        },
+        // {
+        //     id: uuid(),
+        //     title: "Html",
+        //     img: HtmlIcon,
+        // },
+        // {
+        //     id: uuid(),
+        //     title: "Css",
+        //     img: CssIcon,
+        // },
         {
             id: uuid(),
             title: "Javascript",
@@ -151,6 +153,11 @@ const Skills = () => {
           id: uuid(),
           title: "Styled-Components",
           img: StyledIcon,
+        },
+        {
+          id: uuid(),
+          title: "TailwindCss",
+          img: TailwindIcon,
         },
         {
           id: uuid(),

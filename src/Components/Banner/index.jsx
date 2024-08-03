@@ -7,6 +7,13 @@ import { cvUrl, fontSizeXsText, fontSizeMdText, fontSizeMdTitle, fontSizeSmText,
 import { useMediaQuery } from '@mui/material';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  .hvr-underline-from-left::before {
+    background-color: #2157f2;
+  }
+`;
 
 const BannerContainer = styled.section`
   background-image: url(${props => props.bgimage});
@@ -106,6 +113,7 @@ const CardText = styled.h3`
   font-size: ${fontSizeSmText};
   font-weight: 400;
   color: ${textColor};
+  text-align: justify;
 
   @media (min-width: 768px){
     font-size: ${fontSizeMdText};
@@ -140,10 +148,11 @@ const Banner = () => {
         <CardImg src={profileImg} alt='my profile image' data-aos="zoom-in-up" data-aos-anchor-placement="center-bottom" data-aos-delay="600" />
         <CardDiv>
           <CardTitle data-aos="fade-left" data-aos-duration="500">Yo soy <CardTitleHighlighted data-aos="zoom-in-up" data-aos-anchor-placement="center-bottom" data-aos-delay="600">Henry</CardTitleHighlighted> Alexander</CardTitle>
-          <CardText data-aos="fade-right" data-aos-duration="500">Soy un Desarrollador Frontend con React Js, con dos años de experiencia en proyectos de uso personal como landing pages, sitios web y herramientas. Busco colaborar y plasmar mis conocimientos técnicos en nuevos proyectos.</CardText>
+          <CardText data-aos="fade-right" data-aos-duration="500">Soy un Desarrollador Fullstack Jr con React y Node, con experiencia en proyectos de uso personal como landing pages, sitios web y ecommerce básicos. Busco colaborar y plasmar mis conocimientos técnicos en nuevos proyectos potenciales a través del trabajo en equipo.</CardText>
           <CardBtnContainer>
             <Btn href='#projects' data-aos="fade-left" data-aos-duration="500" >Ver Proyectos</Btn>
-            <Btn secundary="true" href={cvUrl} target="_blank" data-aos="fade-right" data-aos-duration="500" >Descargar CV</Btn>
+            <GlobalStyle /> 
+            <Btn secundary="true" className='hvr-underline-from-left' href={cvUrl} target="_blank" data-aos="fade-right" data-aos-duration="500" >Descargar CV</Btn>
           </CardBtnContainer>
         </CardDiv>
       </CardContainer>
