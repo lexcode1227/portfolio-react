@@ -71,7 +71,7 @@ const Projects = () => {
                 {name: "TailwindCss",  icon: TailwindIcon}
             ],
             repository: "https://github.com/lexcode1227/catalogoWeb",
-            demo: "https://openfashion-web.vercel.app/"
+            demo: "https://openfashion-digital.vercel.app/"
         },
         {
             id: uuid(),

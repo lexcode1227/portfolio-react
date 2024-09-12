@@ -22,6 +22,6 @@ export const fontSizeLgText = '25px';
 export const linkedinUrl = 'https://www.linkedin.com/in/henry-agustin-/';
 export const githubUrl = 'https://github.com/lexcode1227';
 export const instagramUrl = 'https://www.instagram.com/henry__agustin/';
-export const cvUrl = 'https://drive.google.com/file/d/1ERUpqbVLxujoNMWAdh-vcfUKYbrbY-DI/view?usp=sharing';
+export const cvUrl = 'https://drive.google.com/file/d/1W3Vxhnv6duHVJ_X5fCD8O33fN7PhXvfs/view?usp=sharing';
 export const platziProfileUrl = 'https://platzi.com/p/henry1227/';
 export const aluraProfileUrl = 'https://app.aluracursos.com/user/henryagustin297';
