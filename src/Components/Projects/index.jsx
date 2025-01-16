@@ -6,20 +6,17 @@ import openFashionImg from "../../assets/openfashion.png"
 import primeImg from "../../assets/prime-services-web.png"
 import AvoShop from "../../assets/Avocate Shop _ platzi.png"
 import DocDocImg from "../../assets/DocDoc-Home.png"
-// import AGAImg from "../../assets/Advice-Generator-App.png"
 import EncriptaImg from "../../assets/Encriptador-de-Texto.png"
 import GUSImg from "../../assets/Github-User-Finder.png"
-// import MyOrgImg from "../../assets/MyOrg.png"
-// import TipImg from "../../assets/Tip-calculator-app-home.png"
-// import AluraFlixImg from "../../assets/AluraFlix.png"
+import TaskAppImg from "../../assets/Task-Management-App-Modal-Form.png"
 import HtmlIcon from '../../assets/Icon-html.svg';
 import CssIcon from '../../assets/Icon-css.svg';
 import JavascriptIcon from '../../assets/Icon-Javascript.svg';
 import ReactIcon from '../../assets/Icon-react.svg';
-import MaterialUIIcon from '../../assets/Icon-material-ui.svg'; 
-import StyledIcon from '../../assets/Icon-styled.svg'; 
-import GitIcon from '../../assets/Icon-git.svg' ;
-import FigmaIcon from '../../assets/Icon-figma.svg';
+import ApolloIcon from '../../assets/ApolloClient.svg';
+import RadixIcon from '../../assets/Radixui.svg';
+import ZustandIcon from '../../assets/Zustand.svg';
+import ZodIcon from '../../assets/Zod.svg';
 import ReduxIcon from '../../assets/Icon-redux.svg';
 import NextIcon from '../../assets/Icon-next.svg';
 import NodeIcon from '../../assets/Icon-nodejs.svg';
@@ -57,6 +54,22 @@ const Projects = () => {
             AOS.init();
           }, []);
     const data = [
+        {
+            id: uuid(),
+            title: "Task Management App",
+            subtitle: "React Trainee Challenge",
+            description: "Task Management App es una proyecto de gestion de tareas que permite ejecutar acciones crud conectadas a una api de graphql. Este proyecto se construyó utilizando tecnologías modernas para manejar el estado de manera eficiente y rápida.",
+            url: TaskAppImg,
+            stack: [
+                {name: "React",  icon: ReactIcon},
+                {name: "RadixUI",  icon: RadixIcon},
+                {name: "Apollo",  icon: ApolloIcon}, 
+                {name: "Zod",  icon: ZodIcon}, 
+                {name: "Zustand",  icon: ZustandIcon}
+            ],
+            repository: "https://github.com/lexcode1227/task-management-app",
+            demo: "https://task-management-app-eta-three.vercel.app/"
+        },
         {
             id: uuid(),
             title: "Open Fashion Ecommerce",
